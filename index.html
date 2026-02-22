@@ -1,0 +1,2173 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>北海道冬日流冰之旅 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2da9d7;
+      --primary-dark: #0077c0;
+      --primary2: #b8232f;
+      --gold: #c9a961;
+      --cream: #faf6f0;
+      --dark: #2c2c2c;
+      --gray: #6b6b6b;
+      --light-gray: #e8e4de;
+      --white: #ffffff;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', 'Noto Sans JP', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .header-icon {
+      font-size: 2rem;
+    }
+
+    .header-text h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .header-text p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      margin-top: 2px;
+    }
+
+    nav {
+      background: var(--white);
+      position: sticky;
+      top: 76px;
+      z-index: 99;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      overflow-x: auto;
+    }
+
+    .nav-inner {
+      display: flex;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+
+    .nav-btn {
+      flex: 1;
+      min-width: 70px;
+      padding: 14px 8px;
+      border: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 0.75rem;
+      color: var(--gray);
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-btn span {
+      font-size: 1.3rem;
+    }
+
+    .nav-btn.active {
+      color: var(--primary);
+      background: linear-gradient(to bottom, transparent, rgba(184, 35, 47, 0.08));
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 15px 100px;
+    }
+
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-header {
+      margin-bottom: 20px;
+    }
+
+    .section-header h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-header p {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .card-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      padding: 15px 20px;
+    }
+
+    .card-header h3 {
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .attraction-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 25px;
+      overflow: hidden;
+    }
+
+    .attraction-image {
+      height: 180px;
+      position: relative;
+    }
+
+    .attraction-image::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    }
+
+    .attraction-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--primary2);
+      color: var(--white);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      z-index: 1;
+    }
+
+    .attraction-title {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+      color: var(--white);
+      z-index: 1;
+    }
+
+    .attraction-title h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .attraction-title .jp-name {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      margin-top: 3px;
+    }
+
+    .attraction-content {
+      padding: 20px;
+    }
+
+    .attraction-description {
+      color: var(--dark);
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .attraction-highlights {
+      background: var(--cream);
+      border-radius: var(--radius-sm);
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .attraction-highlights h4 {
+      font-size: 0.9rem;
+      color: var(--primary2);
+      margin-bottom: 10px;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    .attraction-info {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+
+    .map-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #4285f4 0%, #2b6ed9 100%);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .transport-route {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .route-header {
+      padding: 15px 20px;
+      background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%);
+      color: var(--white);
+    }
+
+    .route-header h3 {
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .route-header .route-time {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      margin-top: 3px;
+    }
+
+    .route-body {
+      padding: 20px;
+    }
+
+    .route-steps {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .route-steps::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 5px;
+      bottom: 5px;
+      width: 2px;
+      background: var(--light-gray);
+    }
+
+    .step {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-marker {
+      position: absolute;
+      left: -30px;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      background: var(--white);
+      border: 3px solid var(--primary);
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .step-marker.start {
+      background: var(--primary);
+    }
+
+    .step-marker.end {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .step-content h4 {
+      font-size: 0.95rem;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .step-content p {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+
+    .step-content .tip {
+      background: #fff8e6;
+      border-left: 3px solid var(--gold);
+      padding: 10px 12px;
+      margin-top: 10px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.85rem;
+    }
+
+    .route-price {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--cream);
+      padding: 12px 15px;
+      border-radius: var(--radius-sm);
+      margin-top: 15px;
+    }
+
+    .route-price .label {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+
+    .route-price .price {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .route-map-btn {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      margin-top: 15px;
+      background: linear-gradient(135deg, #34a853 0%, #2d8a46 100%);
+      color: var(--white);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .phrase-filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    .filter-btn {
+      padding: 8px 16px;
+      border: 2px solid var(--light-gray);
+      background: var(--white);
+      border-radius: 25px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      color: var(--gray);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 14px 20px 14px 45px;
+      border: 2px solid var(--light-gray);
+      border-radius: 30px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+    }
+
+    .search-box::before {
+      content: '🔍';
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .phrase-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-left: 4px solid var(--primary);
+    }
+
+    .phrase-card:hover {
+      transform: translateX(5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .phrase-zh {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .phrase-jp {
+      font-size: 1.1rem;
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .phrase-romaji {
+      font-size: 0.85rem;
+      color: var(--gray);
+      font-style: italic;
+    }
+
+    .phrase-speaker {
+      float: right;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .day-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 25px;
+      overflow: hidden;
+    }
+
+    .day-header {
+      padding: 18px 20px;
+      color: var(--white);
+    }
+
+    .day-header.day1 {
+      background: linear-gradient(135deg, #2facb2 0%, #4cc2c4 100%);
+    }
+
+    .day-header.day2 {
+      background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    }
+
+    .day-header.day3 {
+      background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
+    }
+
+    .day-header.day4 {
+      background: linear-gradient(135deg, #9b59b6 0%, #7d3c98 100%);
+    }
+
+    .day-header.day5 {
+      background: linear-gradient(135deg, #faa918 0%, #f5af02 100%);
+    }
+
+    .day-header.day6 {
+      background: linear-gradient(135deg, #cc3333 0%, #cf202e 100%);
+    }
+
+    .day-header h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .day-header .date {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      margin-top: 3px;
+    }
+
+    .day-content {
+      padding: 20px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px dashed var(--light-gray);
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .timeline-time {
+      flex-shrink: 0;
+      width: 55px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary2);
+    }
+
+    .timeline-content h4 {
+      font-size: 0.95rem;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .timeline-content p {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+
+    .timeline-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: #1a73e8;
+      text-decoration: none;
+      font-size: 0.8rem;
+      margin-top: 5px;
+    }
+
+    .accommodation {
+      background: var(--cream);
+      padding: 15px;
+      border-radius: var(--radius-sm);
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .accommodation span:first-child {
+      font-size: 1.5rem;
+    }
+
+    .accommodation-info h5 {
+      font-size: 0.9rem;
+      color: var(--dark);
+    }
+
+    .accommodation-info p {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .info-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      text-align: center;
+    }
+
+    .info-card .icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .info-card h4 {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 5px;
+    }
+
+    .info-card p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .emergency-card {
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .emergency-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .emergency-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .emergency-item:last-child {
+      border-bottom: none;
+    }
+
+    .emergency-item .label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .emergency-item .number {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .tips-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .tips-card h4 {
+      font-size: 1rem;
+      color: var(--dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tips-card ul {
+      list-style: none;
+    }
+
+    .tips-card li {
+      padding: 8px 0;
+      padding-left: 25px;
+      position: relative;
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    .tips-card li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: bold;
+    }
+
+    .pass-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .pass-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+
+    .pass-item {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-sm);
+      padding: 15px;
+      margin-bottom: 10px;
+    }
+
+    .pass-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .pass-item h4 {
+      font-size: 0.95rem;
+      margin-bottom: 5px;
+    }
+
+    .pass-item p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .pass-item .price {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: var(--dark);
+      color: var(--white);
+      font-size: 0.85rem;
+    }
+
+    footer p {
+      opacity: 0.7;
+    }
+
+    @media (max-width: 480px) {
+      .header-text h1 {
+        font-size: 1.2rem;
+      }
+
+      .nav-btn {
+        font-size: 0.7rem;
+        padding: 12px 6px;
+      }
+
+      .nav-btn span {
+        font-size: 1.2rem;
+      }
+
+      .attraction-info {
+        grid-template-columns: 1fr;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <div class="header-icon">⛄</div>
+      <div class="header-text">
+        <h1>北海道冬日流冰之旅 2026</h1>
+        <p>2月26日 - 3月3日 ｜ 旅遊</p>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <button class="nav-btn active" data-section="itinerary"><span>📅</span>行程</button>
+      <!--
+      <button class="nav-btn" data-section="attractions"><span>📍</span>景點</button>
+      <button class="nav-btn" data-section="transport"><span>🚃</span>交通</button>
+    -->
+      <button class="nav-btn" data-section="phrases"><span>💬</span>會話</button>
+      <!--
+      <button class="nav-btn" data-section="info"><span>ℹ️</span>資訊</button>
+    -->
+    </div>
+  </nav>
+
+  <main>
+    <!-- Itinerary Section -->
+    <section id="itinerary" class="active">
+      <div class="section-header">
+        <h2>📅 6日行程總覽</h2>
+        <p>網走・知床 冬季漫遊</p>
+      </div>
+      <div class="day-card">
+        <div class="day-header day1">
+          <h3>Day 1 ｜ 抵達網走</h3>
+          <div class="date">2026年2月26日（四）</div>
+        </div>
+        <div class="day-content">
+          <div class="timeline-item">
+            <div class="timeline-time">00:10</div>
+            <div class="timeline-content">
+              <h4>🛫 台北桃園T1 → 羽田機場T3</h4>
+              <p>虎航IT216｜預計04:00抵達羽田T3</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">07:00</div>
+            <div class="timeline-content">
+              <h4>🛫 羽田機場T2 → 女滿別機場</h4>
+              <p>北海道航空HD075｜預計08:45抵達女滿別</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:00</div>
+            <div class="timeline-content">
+              <h4>🚌 女滿別機場(1號) → 網走</h4>
+              <p>網走巴士-女滿別空港線｜女滿別機場1號站牌｜約25-35分鐘｜¥1,050/人</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=43.881573032462505,144.15856901901893" target="_blank" class="timeline-link">📍 女滿別機場乘車處 </a><br>
+              <a href="https://japantravel.navitime.com/zh-tw/area/jp/depArrTimeList/00193111/00061035/00043170?direction=down&date=2026-02-26&hour=9&trainType=%E7%B6%B2%E8%B5%B0%E5%B7%B4%E5%A3%AB%20%E5%A5%B3%E6%BB%BF%E5%88%A5%E7%A9%BA%E6%B8%AF%E7%B7%9A"
+                target="_blank" class="timeline-link">📍 網走巴士線 時刻表</a>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:50</div>
+            <div class="timeline-content">
+              <h4>🧳 寄放行李</h4>
+              <p>東橫INN北海道鄂霍次克網走站前</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:00</div>
+            <div class="timeline-content">
+              <h4>🚕 Go計程車 → 博物館網走監獄</h4>
+              <p>預計10:10抵達</p>
+              <h5>博物館網走監獄</h5>
+              <p>09:00～17:00｜¥1,500/人｜可於監獄食堂用餐(11:00～15:00)</p>
+              <a href="https://www.kangoku.jp/multilingual_hantai/" target="_blank" class="timeline-link">📍 官方網站</a>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:40<br>或<br>13:20</div>
+            <div class="timeline-content">
+              <h4>🚌 博物館網走監獄 → 天都山(流冰館)</h4>
+              <p>約5分鐘抵達｜¥210/人</p>
+              <a href="../網走知床/網走巴士/shisetu2026.01.20.pdf" target="_blank" class="timeline-link">📍 網走市內觀光巴士時刻表</a>
+              <h5>鄂霍次克流冰館</h5>
+              <p>09:00～16:30｜¥990/人｜可吃Rimo義式焦糖海鹽冰淇淋</p>
+              <a href="https://www.ryuhyokan.com/guide/cn02/" target="_blank" class="timeline-link">📍 官方網站</a>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:03<br>或<br>14:43</div>
+            <div class="timeline-content">
+              <h4>🚌 天都山(流冰館) → JR網走巴士站</h4>
+              <p>約18分鐘抵達｜¥390/人</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:15<br>或<br>15:36</div>
+            <div class="timeline-content">
+              <h4>🚌 網走站前(網走巴士) → 駒場八丁目(網走巴士)</h4>
+              <p>15:15發車，預計15:32抵達｜小清水線(往小清水)｜¥430/人</p>
+              <a href="https://world.jorudan.co.jp/mln/zh-tw/?p=0&xpd=1&from=%E7%B6%B2%E8%B5%B0&to=%E9%A7%92%E5%A0%B4%E5%85%AB%E4%B8%81%E7%9B%AE%E3%80%94%E7%B6%B2%E8%B5%B0%E5%B7%B4%E5%A3%AB%E3%80%95&date=2026%2F02%2F26&time=14%3A30&ft=0&ic=0&us=0&up=0&ut=0&nzm=0&sub_lang=ja&estt=%E9%A7%92%E5%A0%B4%E5%85%AB%E4%B8%81%E7%9B%AE%E3%80%94%E7%B6%B2%E8%B5%B0%E5%B7%B4%E5%A3%AB%E3%80%95"
+                target="_blank" class="timeline-link">📍 網走站前-駒場八丁目(網走巴士) 時刻表</a>
+              <p>15:36發車，預計15:57抵達｜問荊線：南高前、共鳴中心(往問荊丘團地)｜¥430/人</p>
+              <a href="https://world.jorudan.co.jp/mln/zh-tw/?p=0&from=%e7%b6%b2%e8%b5%b0&to=%e9%a7%92%e5%a0%b4%e5%85%ab%e4%b8%81%e7%9b%ae%e3%80%94%e7%b6%b2%e8%b5%b0%e5%b7%b4%e5%a3%ab%e3%80%95&date=2026%2f02%2f26&time=15%3a30&ft=0&ic=0&ut=0&up=0&us=0&nzm=0&sub_lang=ja"
+                target="_blank" class="timeline-link">📍 網走站前-駒場八丁目(網走巴士) 時刻表</a>
+              <h5>Uniqlo網走店、駒場購物商城</h5>
+              <p>添購保暖衣物及食物</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">18:07</div>
+            <div class="timeline-content">
+              <h4>🚌 駒場8丁目站(網走觀光交通) → 網走站(網走觀光交通)</h4>
+              <p>駒場8丁目巴士站｜車程約13分鐘(行經14站)｜¥390/人｜預計18:20抵達</p>
+              <a href="https://world.jorudan.co.jp/mln/zh-tw/?p=0&from=%e9%a7%92%e5%a0%b4%ef%bc%98%e4%b8%81%e7%9b%ae%e3%80%94%e7%b6%b2%e8%b5%b0%e8%a7%80%e5%85%89%e4%ba%a4%e9%80%9a%e3%80%95&to=%e7%b6%b2%e8%b5%b0&date=2026%2f02%2f26&time=17%3a55&ft=0&ic=0&ut=0&up=0&us=0&nzm=0&sub_lang=ja"
+                target="_blank" class="timeline-link">📍 駒場8丁目-網走站(網走觀光交通) 時刻表</a>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">18:20</div>
+            <div class="timeline-content">
+              <h4>🚌 駒場八丁目站(網走巴士) → 網走站前(網走巴士)</h4>
+              <p>駒場八丁目巴士站｜車程約25分鐘(行經14站)｜¥430/人｜預計18:40抵達</p>
+              <p>⭐當日最後一班</p>
+              <a href="https://world.jorudan.co.jp/mln/zh-tw/?p=0&from=%e9%a7%92%e5%a0%b4%e5%85%ab%e4%b8%81%e7%9b%ae%e3%80%94%e7%b6%b2%e8%b5%b0%e5%b7%b4%e5%a3%ab%e3%80%95&to=%e7%b6%b2%e8%b5%b0&date=2026%2f02%2f26&time=18%3a20&ft=0&ic=0&ut=0&up=0&us=0&nzm=0&sub_lang=ja"
+                target="_blank" class="timeline-link">📍 駒場八丁目-網走站前(網走巴士) 時刻表</a>
+            </div>
+          </div>
+          <!-- 備案
+          <div class="timeline-item">
+            <div class="timeline-time">10:53</div>
+            <div class="timeline-content">
+              <h4>🚌 JR網走巴士站(2號) → 博物館網走監獄</h4>
+              <p>預計11:00抵達｜¥280/人</p>
+              <a href="../網走知床/網走巴士/shisetu2026.01.20.pdf" target="_blank" class="timeline-link">📍 網走市內觀光巴士時刻表</a>
+              <h5>博物館網走監獄</h5>
+              <p>09:00～17:00｜¥1,500/人｜可於監獄食堂用餐(11:00～15:00)</p>
+              <a href="https://www.kangoku.jp/multilingual_hantai/" target="_blank" class="timeline-link">📍 官方網站</a>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:00</div>
+            <div class="timeline-content">
+              <h4>🚌 博物館網走監獄 → 天都山(流冰館)</h4>
+              <p>預計14:05抵達｜¥210/人</p>
+              <a href="../網走知床/網走巴士/shisetu2026.01.20.pdf" target="_blank" class="timeline-link">📍 網走市內觀光巴士時刻表</a>
+              <h5>鄂霍次克流冰館</h5>
+              <p>09:00～16:30｜¥990/人｜可吃Rimo義式焦糖海鹽冰淇淋</p>
+              <a href="https://www.ryuhyokan.com/guide/cn02/" target="_blank" class="timeline-link">📍 官方網站</a>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:18</div>
+            <div class="timeline-content">
+              <h4>🚌 天都山(流冰館) → JR網走巴士站 → Check-in</h4>
+              <p>預計15:32抵達｜¥390/人</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:10</div>
+            <div class="timeline-content">
+              <h4>🚌 網走站(網走觀光交通) → 駒場8丁目站(網走觀光交通)</h4>
+              <p>網走東藻琴線(往東藻琴［原紺商店前］)｜車程約13分鐘(行經14站)｜¥390/人｜預計16:23抵達</p>
+              <a href="https://world.jorudan.co.jp/mln/zh-tw/?p=0&xpd=1&from=%E7%B6%B2%E8%B5%B0&to=%E9%A7%92%E5%A0%B4%EF%BC%98%E4%B8%81%E7%9B%AE%E3%80%94%E7%B6%B2%E8%B5%B0%E8%A7%80%E5%85%89%E4%BA%A4%E9%80%9A%E3%80%95&date=2026%2F02%2F26&time=16%3A00&ft=0&ic=0&us=0&up=0&ut=0&nzm=0&sub_lang=ja&estf=%E7%B6%B2%E8%B5%B0"
+                target="_blank" class="timeline-link">📍 網走-駒場8丁目(網走觀光交通) 時刻表</a>
+              <h5>Uniqlo網走店、駒場購物商城</h5>
+              <p>添購保暖衣物及食物</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">18:07</div>
+            <div class="timeline-content">
+              <h4>🚌 駒場8丁目站(網走觀光交通) → 網走站(網走觀光交通)</h4>
+              <p>駒場8丁目巴士站｜車程約13分鐘(行經14站)｜¥390/人｜預計18:20抵達</p>
+              <a href="https://world.jorudan.co.jp/mln/zh-tw/?p=0&from=%e9%a7%92%e5%a0%b4%ef%bc%98%e4%b8%81%e7%9b%ae%e3%80%94%e7%b6%b2%e8%b5%b0%e8%a7%80%e5%85%89%e4%ba%a4%e9%80%9a%e3%80%95&to=%e7%b6%b2%e8%b5%b0&date=2026%2f02%2f26&time=17%3a55&ft=0&ic=0&ut=0&up=0&us=0&nzm=0&sub_lang=ja"
+                target="_blank" class="timeline-link">📍 駒場8丁目-網走站(網走觀光交通) 時刻表</a>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">18:20</div>
+            <div class="timeline-content">
+              <h4>🚌 駒場八丁目站(網走巴士) → 網走站前(網走巴士)</h4>
+              <p>駒場八丁目巴士站｜車程約25分鐘(行經14站)｜¥430/人｜預計18:40抵達</p>
+              <p>⭐當日最後一班</p>
+              <a href="https://world.jorudan.co.jp/mln/zh-tw/?p=0&from=%e9%a7%92%e5%a0%b4%e5%85%ab%e4%b8%81%e7%9b%ae%e3%80%94%e7%b6%b2%e8%b5%b0%e5%b7%b4%e5%a3%ab%e3%80%95&to=%e7%b6%b2%e8%b5%b0&date=2026%2f02%2f26&time=18%3a20&ft=0&ic=0&ut=0&up=0&us=0&nzm=0&sub_lang=ja"
+                target="_blank" class="timeline-link">📍 駒場八丁目-網走站前(網走巴士) 時刻表</a>
+            </div>
+            -->
+          <div class="accommodation">
+            <span>🛏️</span>
+            <div class="accommodation-info">
+              <h5>東橫INN北海道鄂霍次克網走站前</h5>
+              <p>含兩客早餐｜入住：15:00・退房：10:00</p>
+              <p>1-3-3 Shim-machi, Abashiri city, Hokkaido 093-0046 Japan｜入住：15:00・退房：10:00</p>
+              <a href="https://www.toyoko-inn.com/china/search/detail/00003/" target="_blank" class="timeline-link">📍 官方網站</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-header day2">
+          <h3>Day 2 ｜ 摩周湖、阿寒湖高速巴士一日遊Route 3</h3>
+          <div class="date">2026年2月27日（五）</div>
+        </div>
+        <div class="accommodation">
+          <span>🚍</span>
+          <div class="accommodation-info">
+            <h5>東北海道高速巴士Route 3</h5>
+            <p>班次號碼：HH-0301｜北見/網走 → 摩周 → 阿寒 → 北見/網走</p>
+            <a href="https://www.kosokubus.com/tw/special/easthokkaido-route3.html" target="_blank" class="timeline-link">📍 查詢路線</a>
+          </div>
+        </div>
+        <div class="day-content">
+          <div class="timeline-item">
+            <div class="timeline-time">09:10</div>
+            <div class="timeline-content">
+              <h4>🚥 流冰街道網走</h4>
+              <p>網走Aurora乘船處</p><a href="https://www.google.com/maps/place/44%C2%B001'19.4%22N+144%C2%B016'25.1%22E/@44.0216764,144.273636,17.75z/data=!4m4!3m3!8m2!3d44.022041!4d144.273636?entry=ttu&g_ep=EgoyMDI2MDIxNy4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank" class="timeline-link">📍 網走Aurora乘船處</a>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:00</div>
+            <div class="timeline-content">
+              <h4>⛰️ 硫磺山</h4>
+              <p>11:20上車</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:00</div>
+            <div class="timeline-content">
+              <h4>🏞️ 摩周湖第一展望台</h4>
+              <p>13:00上車</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:10</div>
+            <div class="timeline-content">
+              <h4>♨️ 阿寒湖溫泉</h4>
+              <p>15:10上車</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:50</div>
+            <div class="timeline-content">
+              <h4>童話之丘</h4>
+              <p>16:55上車</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">17:15</div>
+            <div class="timeline-content">
+              <h4>🚉 JR網走站</h4>
+            </div>
+          </div>
+          <div class="accommodation">
+            <span>🛏️</span>
+            <div class="accommodation-info">
+              <h5>東橫INN北海道鄂霍次克網走站前</h5>
+              <p>含兩客早餐｜入住：15:00・退房：10:00</p>
+              <p>1-3-3 Shim-machi, Abashiri city, Hokkaido 093-0046 Japan</p>
+              <a href="https://www.toyoko-inn.com/china/search/detail/00003/" target="_blank" class="timeline-link">📍 官方網站</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-header day3">
+          <h3>Day 3 ｜ 知床流冰漫步</h3>
+          <div class="date">2026年2月28日（六）</div>
+        </div>
+        <div class="accommodation">
+          <span>⚠️</span>
+          <div class="accommodation-info">
+            <h5>注意事項：</h5>
+            <p>1. 集合地點無私人更衣室，勿穿著連帽衣物、高領厚毛衣、羊毛、羽絨等</p>
+            <p>2. 穿著合身長褲，不建議下擺寬鬆的寬褲或雪褲</p>
+            <p>3. 自備防寒用毛帽、太陽眼鏡</p>
+            <p>4. 長髮者先將頭髮綁起來，務必事先取下所有飾品(包含手錶)</p>
+            <p>5. 著裝影片請參考 <a href="https://youtu.be/en3EiLuK27s" target="_blank" class="timeline-link">Youtube</a></p>
+          </div>
+        </div>
+        <div class="day-content">
+          <div class="timeline-item">
+            <div class="timeline-time">06:00</div>
+            <div class="timeline-content">
+              <h4>🧳寄放行李</h4>
+              <p>JR網走站寄放行李｜預計¥500～700/日</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">06:10</div>
+            <div class="timeline-content">
+              <h4>🚅 JR網走站 → JR知床斜里站</h4>
+              <p>06:38發車，07:21抵達｜釧網本線(往釧路)｜預計¥1,040/人</p>
+              <a href="https://jrhokkaidonorikae.com/pc/cgi/result.cgi?search_target=route&search_way=time&sum_target=7&faretype=2&jr=on&privately=on&dep_node=ABASHIRI&arv_node=SHIRETOKO-SHARI&via_node01=&via_node02=&via_node03=&year=2026&month=02&day=28&hour=6&minute=00&search_type=departure&sort=time&max_route=5&nearexpress=on&sprexprs=on&utrexprs=on&exprs=on&slputr=on&slpexprs=on&sprnozomi=on&transfer=normal&lang=en&xsl=hrsr"
+                target="_blank" class="timeline-link">📍 JR 時刻表</a>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:30</div>
+            <div class="timeline-content">
+              <h4>🚌 斜里巴士總站(斜里巴士)(1號) → 宇登呂溫泉巴士總站(斜里巴士)</h4>
+              <p>預計10:20抵達｜¥1,650/人</p>
+              <a href="https://world.jorudan.co.jp/mln/zh-tw/?p=0&xpd=1&from=%E6%96%9C%E9%87%8C%E5%B7%B4%E5%A3%AB%E7%B8%BD%E7%AB%99%E3%80%94%E9%AB%98%E9%80%9F%E5%B7%B4%E5%A3%AB%E3%80%95&to=%E5%AE%87%E7%99%BB%E5%91%82%E6%BA%AB%E6%B3%89%E5%B7%B4%E5%A3%AB%E7%B8%BD%E7%AB%99%E3%80%94%E6%96%9C%E9%87%8C%E5%B7%B4%E5%A3%AB%E3%80%95&date=2026%2F02%2F28&time=07%3A00&ft=0&ic=0&us=0&up=0&ut=0&nzm=0&sub_lang=ja"
+                target="_blank" class="timeline-link">📍 斜里巴士 時刻表</a>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:30</div>
+            <div class="timeline-content">
+              <h4>❄️ Lantoko流冰漫步</h4>
+              <p>10分鐘前須抵達集合地點報到｜約1.5小時</p>
+              <p>北海道斜里郡斜里町Utoro東131(圓子水産隔壁)</p>
+              <a href="https://drift-ice.com/tw/" target="_blank" class="timeline-link">📍 官方網站</a>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:00</div>
+            <div class="timeline-content">
+              <h4>🧳 Check-in</h4>
+              <p>知床第一飯店｜宇登呂溫泉巴士總站到本館有免費接送服務 TEL：+81-152-24-2334</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:00</div>
+            <div class="timeline-content">
+              <h4>🏞️ 夕陽台展望台</h4>
+              <p>知床八景之一｜</p>
+              <a href="https://www.surf-life.blue/sunrisesunset/%E5%8C%97%E6%B5%B7%E9%81%93/%E6%96%9C%E9%87%8C%E9%83%A1%E6%96%9C%E9%87%8C%E7%94%BA/" target="_blank" class="timeline-link">📍 斜里町日落時間</a>
+            </div>
+          </div>
+          <div class="accommodation">
+            <span>🛏️</span>
+            <div class="accommodation-info">
+              <h5>知床第一飯店</h5>
+              <p>含兩客早餐、兩客晚餐｜入住：15:00・退房：10:00</p>
+              <p>306 Utorokagawa, 099-4351 斜里町, 斜里郡, 北海道, 日本</p>
+              <a href="https://shiretoko-1.com/tw/" target="_blank" class="timeline-link">📍 官方網站</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-header day4">
+          <h3>Day 4 ｜ 流冰物語號(知床 → 網走)</h3>
+          <div class="date">2026年3月1日（日）</div>
+        </div>
+        <div class="day-content">
+          <div class="timeline-item">
+            <div class="timeline-time">10:20</div>
+            <div class="timeline-content">
+              <h4>🚌 宇登呂溫泉總站(知床線) → 知床自然中心</h4>
+              <p>預計10:30抵達｜¥340/人</p>
+              <a href="https://www.sharibus.co.jp/pdf/2025_shiretokow1.pdf" target="_blank" class="timeline-link">📍 知床線 時刻表</a>
+              <h5>知床自然中心</h5>
+              <p>9:00～16:00｜冬季散步步道往返60分/2km</p>
+              <a href="https://center.shiretoko.or.jp/walking/" target="_blank" class="timeline-link">📍 官方網站</a>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">13:00</div>
+            <div class="timeline-content">
+              <h4>🚌 知床自然中心 → 宇登呂溫泉總站(知床線)</h4>
+              <p>預計13:10抵達｜¥340/人</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:30</div>
+            <div class="timeline-content">
+              <h4>🚌 宇登呂溫泉總站(斜里巴士) → 斜里巴士總站(斜里巴士)</h4>
+              <p>預計15:20抵達｜¥1,650/人</p>
+              <a href="https://world.jorudan.co.jp/mln/zh-tw/?p=0&xpd=1&from=%E5%AE%87%E7%99%BB%E5%91%82%E6%BA%AB%E6%B3%89%E5%B7%B4%E5%A3%AB%E7%B8%BD%E7%AB%99%E3%80%94%E6%96%9C%E9%87%8C%E5%B7%B4%E5%A3%AB%E3%80%95&to=%E7%9F%A5%E5%BA%8A%E6%96%9C%E9%87%8C&date=2026%2F03%2F01&time=12%3A30&ft=0&ic=0&us=0&up=0&ut=0&nzm=0&sub_lang=ja&estf=%E5%AE%87%E7%99%BB%E5%91%82%E6%BA%AB%E6%B3%89%E5%B7%B4%E5%A3%AB%E7%B8%BD%E7%AB%99%E3%80%94%E6%96%9C%E9%87%8C%E5%B7%B4%E5%A3%AB%E3%80%95"
+                target="_blank" class="timeline-link">📍 斜里巴士 時刻表</a>
+
+            </div>
+          </div>
+          <!--
+          <div class="timeline-item">
+            <div class="timeline-time">11:14<br>或<br>11:40</div>
+            <div class="timeline-content">
+              <h4>🚅 JR知床斜里站 → JR濱小清水站</h4>
+              <p>11:14發車，11:31抵達｜釧網本線(往網走)-快速Shiretoko摩周號｜¥470/人</p>
+              <p>⭐11:40發車，11:56抵達｜釧網本線(往網走)-2號流冰物語號｜¥1,310/人</p>
+              <a href="https://jrhokkaidonorikae.com/pc/cgi/result.cgi?search_target=route&search_way=time&sum_target=7&faretype=2&jr=on&privately=on&dep_node=SHIRETOKO-SHARI&arv_node=HAMA-KOSHIMIZU&via_node01=&via_node02=&via_node03=&year=2026&month=03&day=01&hour=9&minute=00&search_type=departure&sort=time&max_route=5&nearexpress=on&sprexprs=on&utrexprs=on&exprs=on&slputr=on&slpexprs=on&sprnozomi=on&transfer=normal&lang=en&xsl=hrsr"
+                target="_blank" class="timeline-link">📍 JR時刻表</a>
+              <p>JR濱小清水站旁有販賣當地農特產</p>
+              <h5>MontBell網走店</h5>
+              <p>09:00～18:00</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:10<br>或<br>14:51</div>
+            <div class="timeline-content">
+              <h4>🚅 JR濱小清水站 → JR網走站</h4>
+              <p>14:10發車，14:26抵達｜釧網本線(往網走)-快速Shiretoko摩周號｜¥1,310/人</p>
+              <p>⭐14:51發車，15:14抵達｜釧網本線(往網走)-4號流冰物語號｜¥1,420/人</p>
+              <a href="https://www.jrhokkaido.co.jp/travel/ryuhyo/" target="_blank" class="timeline-link">📍 流冰物語號</a>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-time">14:10</div>
+            <div class="timeline-content">
+              <h4>🚅 (流冰物語號) JR知床斜里站 → JR濱小清水站</h4>
+              <p>⭐14:10發車，14:26抵達｜4號流冰物語號｜¥1,310/人</p>
+              <a href="https://jrhokkaidonorikae.com/pc/cgi/result.cgi?search_target=route&search_way=time&sum_target=7&faretype=2&jr=on&privately=on&dep_node=SHIRETOKO-SHARI&arv_node=HAMA-KOSHIMIZU&via_node01=&via_node02=&via_node03=&year=2026&month=03&day=01&hour=9&minute=00&search_type=departure&sort=time&max_route=5&nearexpress=on&sprexprs=on&utrexprs=on&exprs=on&slputr=on&slpexprs=on&sprnozomi=on&transfer=normal&lang=en&xsl=hrsr"
+                target="_blank" class="timeline-link">📍 JR時刻表</a>
+                <a href="https://www.jrhokkaido.co.jp/travel/ryuhyo/" target="_blank" class="timeline-link">📍 流冰物語號</a>
+              <p>JR濱小清水站旁有販賣當地農特產</p>
+              <h5>MontBell網走店</h5>
+              <p>09:00～18:00</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:51<br>或<br>17:10</div>
+            <div class="timeline-content">
+              <h4>🚅 JR濱小清水站 → JR網走站</h4>
+              <p>⭐14:51發車，15:01抵達北濱，15:14抵達網走｜4號流冰物語號｜¥580/人</p>
+              <p>17:10發車，17:36抵達網走｜釧網本線(往網走)｜¥580/人</p>
+              <a href="https://jrhokkaidonorikae.com/pc/cgi/result.cgi?search_target=route&search_way=time&sum_target=7&faretype=2&jr=on&privately=on&dep_node=HAMA-KOSHIMIZU&arv_node=ABASHIRI&via_node01=&via_node02=&via_node03=&year=2026&month=03&day=01&hour=14&minute=0&search_type=departure&sort=time&max_route=5&sprexprs=on&utrexprs=on&exprs=on&slputr=on&slpexprs=on&sprnozomi=on&transfer=normal&lang=en&xsl=hrsr"
+                target="_blank" class="timeline-link">📍 JR時刻表</a>
+            </div>
+          </div>
+          -->
+          <div class="timeline-item">
+            <div class="timeline-time">16:44</div>
+            <div class="timeline-content">
+              <h4>🚅 JR知床斜里站 → JR網走站</h4>
+              <p>16:44發車，17:36抵達網走｜釧網本線(往網走)｜¥1,040/人</p>
+              <a href="https://jrhokkaidonorikae.com/pc/cgi/result.cgi?search_target=route&search_way=time&sum_target=7&faretype=2&jr=on&privately=on&dep_node=SHIRETOKO-SHARI&arv_node=ABASHIRI&via_node01=&via_node02=&via_node03=&year=2026&month=03&day=01&hour=12&minute=0&search_type=departure&sort=time&max_route=5&sprexprs=on&utrexprs=on&exprs=on&slputr=on&slpexprs=on&sprnozomi=on&transfer=normal&lang=en&xsl=hrsr"
+                target="_blank" class="timeline-link">📍 JR時刻表</a>
+            </div>
+          </div>
+          <div class="accommodation">
+            <span>🛏️</span>
+            <div class="accommodation-info">
+              <h5>東橫INN北海道鄂霍次克網走站前</h5>
+              <p>含兩客早餐｜入住：15:00・退房：10:00</p>
+              <p>1-3-3 Shim-machi, Abashiri city, Hokkaido 093-0046 Japan</p>
+              <a href="https://www.toyoko-inn.com/china/search/detail/00003/" target="_blank" class="timeline-link">📍 官方網站</a>
+            </div>
+          </div>
+          <!-- 備案
+          <div class="timeline-item">
+            <div class="timeline-time">09:04</div>
+            <div class="timeline-content">
+              <h4>🚌 宇登呂溫泉客運站 → 斜里巴士總站</h4>
+              <p>預計10:20抵達｜</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:04</div>
+            <div class="timeline-content">
+              <h4>🚅 JR知床斜里站 → JR濱小清水站</h4>
+              <p>釧網本線(往網走)｜預計09:21抵達｜¥470/人｜JR濱小清水站旁有販賣當地農特產</p>
+              <a href="https://jrhokkaidonorikae.com/pc/cgi/result.cgi?search_target=route&search_way=time&sum_target=7&faretype=2&jr=on&privately=on&dep_node=SHIRETOKO-SHARI&arv_node=HAMA-KOSHIMIZU&via_node01=&via_node02=&via_node03=&year=2026&month=03&day=01&hour=9&minute=00&search_type=departure&sort=time&max_route=5&nearexpress=on&sprexprs=on&utrexprs=on&exprs=on&slputr=on&slpexprs=on&sprnozomi=on&transfer=normal&lang=en&xsl=hrsr"
+               target="_blank" class="timeline-link">📍 JR時刻表</a>
+              <h5>MontBell網走店</h5>
+              <p>09:00～18:00</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">11:31<br>或<br>12:21</div>
+            <div class="timeline-content">
+              <h4>🚅 JR濱小清水站 → JR網走站</h4>
+              <p>11:31 釧網本線(往網走)-快速Shiretoko摩周號｜預計11:59抵達｜¥580/人</p>
+              <p>⭐12:21 釧網本線(往網走)-2號流冰物語號｜預計12:44抵達｜¥1,420/人</p>
+              <a href="https://www.jrhokkaido.co.jp/travel/ryuhyo/" target="_blank" class="timeline-link">📍 流冰物語號</a>
+            </div>
+          </div>
+          <div class="accommodation">
+            <span>🛏️</span>
+            <div class="accommodation-info">
+              <h5>東橫INN北海道鄂霍次克網走站前</h5>
+              <p>含兩客早餐｜入住：15:00・退房：10:00</p>
+              <p>1-3-3 Shim-machi, Abashiri city, Hokkaido 093-0046 Japan</p>
+              <a href="https://www.toyoko-inn.com/china/search/detail/00003/" target="_blank" class="timeline-link">📍 官方網站</a>
+            </div>
+          </div>
+        -->
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-header day5">
+          <h3>Day 5 ｜ 能取岬、網走破冰船高速巴士半日遊Route 8</h3>
+          <div class="date">2026年3月2日（一）</div>
+        </div>
+        <div class="accommodation">
+          <span>🚍</span>
+          <div class="accommodation-info">
+            <h5>東北海道高速巴士Route 8</h5>
+            <p>班次號碼：MTK-0801｜北見 → 網走 → 美幌 → 北見 *含Aurora號(15:30出發)乘船券</p>
+            <a href="https://www.kosokubus.com/tw/special/easthokkaido-route3.html" target="_blank" class="timeline-link">📍 查詢路線</a>
+          </div>
+        </div>
+        <div class="day-content">
+          <div class="timeline-item">
+            <div class="timeline-time">12:50</div>
+            <div class="timeline-content">
+              <h4>🚉 JR網走站(1號)</h4>
+              <p>13:00上車｜JR網走站1號乘車站</p>
+              <a href="https://www.google.com/maps/place/44%C2%B001'13.5%22N+144%C2%B015'13.2%22E/@44.020422,144.2511011,17z/data=!3m1!4b1!4m4!3m3!8m2!3d44.020422!4d144.253676?entry=ttu&g_ep=EgoyMDI2MDIxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank"
+                class="timeline-link">📍 JR網走站1號乘車站</a>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">13:05</div>
+            <div class="timeline-content">
+              <h4>🚥 道之驛流冰街道網走(午餐自理65分鐘)</h4>
+              <p>14:10上車</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">14:30</div>
+            <div class="timeline-content">
+              <h4>🏞️ 能取岬</h4>
+              <p>14:50上車</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:10</div>
+            <div class="timeline-content">
+              <h4>🚢 極光號破冰船</h4>
+              <p>16:50上車</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:55</div>
+            <div class="timeline-content">
+              <h4>🚉 JR網走站</h4>
+
+            </div>
+          </div>
+          <div class="accommodation">
+            <span>🛏️</span>
+            <div class="accommodation-info">
+              <h5>東橫INN北海道鄂霍次克網走站前</h5>
+              <p>含兩客早餐｜入住：15:00・退房：10:00</p>
+              <p>1-3-3 Shim-machi, Abashiri city, Hokkaido 093-0046 Japan</p>
+              <a href="https://www.toyoko-inn.com/china/search/detail/00003/" target="_blank" class="timeline-link">📍 官方網站</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-header day6">
+          <h3>Day 6 ｜ 返回台北</h3>
+          <div class="date">2026年3月3日（二）</div>
+        </div>
+        <div class="day-content">
+          <div class="timeline-item">
+            <div class="timeline-time">12:10</div>
+            <div class="timeline-content">
+              <h4>🚉 網走巴士站(3號) → Rimo義式冰淇淋</h4>
+              <p>12:10發車，12:28抵達｜¥320/人</p>
+              <a href="https://www.abashiribus.com/jikoku/mmbR07.12.01_2.pdf" target="_blank" class="timeline-link">📍 女滿別機場線 時刻表</a>
+              <h5>Rimo義式冰淇淋網走店</h5>
+              <p>11:00～17:00｜¥450/1球、¥550/2球、¥600/3球</p>
+              <a href="https://rimo-gelateria.com/" target="_blank" class="timeline-link">📍 官方網站</a>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">12:53</div>
+            <div class="timeline-content">
+              <h4>🚉 Rimo義式冰淇淋 → 女滿別機場</h4>
+              <p>12:53發車，13:10抵達｜¥320/人</p>
+              <a href="https://www.abashiribus.com/jikoku/mmbR07.12.01_2.pdf" target="_blank" class="timeline-link">📍 女滿別機場線 時刻表</a>
+            </div>
+          </div>
+          <!--
+          <div class="timeline-item">
+            <div class="timeline-time">09:00</div>
+            <div class="timeline-content">
+              <h4>🚌 網走 → 女滿別機場</h4>
+              <p>網走巴士-女滿別空港線｜女滿別機場1號站牌｜約25-35分鐘｜¥1,050/人</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=43.881573032462505,144.15856901901893" target="_blank" class="timeline-link">📍 女滿別機場乘車處 </a><br>
+              <a href="https://japantravel.navitime.com/zh-tw/area/jp/depArrTimeList/00193111/00061035/00043170?direction=down&date=2026-02-26&hour=9&trainType=%E7%B6%B2%E8%B5%B0%E5%B7%B4%E5%A3%AB%20%E5%A5%B3%E6%BB%BF%E5%88%A5%E7%A9%BA%E6%B8%AF%E7%B7%9A"
+                target="_blank" class="timeline-link">📍 網走巴士線 時刻表</a>
+            </div>
+          </div>
+          -->
+          <div class="timeline-item">
+            <div class="timeline-time">13:55</div>
+            <div class="timeline-content">
+              <h4>🛫 女滿別機場 → 新千歲機場D</h4>
+              <p>日航JL2714｜預計14:45抵達新千歲機場D國內線</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15:00</div>
+            <div class="timeline-content">
+              <h4>🛫 新千歲機場國內線2F</h4>
+              <h5>Calbee現炸薯條</h5>
+              <p>商店街中央廣場，看到Uniqlo在網B出發口走，跟著排隊人群就到了</p>
+              <h5>Kamaei榮魚餅</h5>
+              <p>水產區靠近北邊廁所的地方，看到大家排隊人群就是了</p>
+              <h5>札幌農學校冰淇淋</h5>
+              <p>甜點區非常顯眼的地方</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">16:00</div>
+            <div class="timeline-content">
+              <h4>🛫 移動至新千歲機場I</h4>
+              <p>唐吉軻德、買海產及干貝</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">18:40</div>
+            <div class="timeline-content">
+              <h4>🛫 新千歲機場I → 台北桃園</h4>
+              <p>酷航TR893｜預計22:15抵達桃園機場T1</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Attractions Section -->
+    <section id="attractions">
+      <div class="section-header">
+        <h2>📍 景點詳細介紹</h2>
+        <p>點擊地圖按鈕直接導航</p>
+      </div>
+
+      <div class="attraction-card">
+        <div class="attraction-image" style="background: linear-gradient(135deg, #d4a574 0%, #8b6914 100%);">
+          <span class="attraction-badge">大阪</span>
+          <div class="attraction-title">
+            <h3>中崎町</h3>
+            <div class="jp-name">なかざきちょう</div>
+          </div>
+        </div>
+        <div class="attraction-content">
+          <p class="attraction-description">
+            隱藏在梅田繁華區旁的昭和時光膠囊，大阪唯一在二戰轟炸中倖存的街區，保留超過100年歷史的木造町家。近年文青與藝術家進駐，將老屋改造成特色咖啡廳、古著店和手作雜貨舖。</p>
+          <div class="attraction-highlights">
+            <h4>✨ 必訪亮點</h4>
+            <div class="highlight-item"><span>☕</span><span><strong>うてな喫茶店</strong>：老宅秘密咖啡館，手沖深煎咖啡配古書</span>
+            </div>
+            <div class="highlight-item"><span>🎮</span><span><strong>Elemeka
+                  Laboratory</strong>：店主手作復古遊戲機，10日圓就能玩</span></div>
+            <div class="highlight-item"><span>👗</span><span><strong>Green
+                  Pepe</strong>：60-70年代昭和古董，洋裝、家具、玩具</span></div>
+            <div class="highlight-item"><span>🥯</span><span><strong>neel</strong>：東京超人氣酪梨咖啡廳，IG打卡聖地</span>
+            </div>
+          </div>
+          <div class="attraction-info">
+            <div class="info-item"><span>🚇</span>地鐵谷町線「中崎町站」</div>
+            <div class="info-item"><span>🚶</span>從梅田步行15分鐘</div>
+            <div class="info-item"><span>⏰</span>各店營業時間不同</div>
+            <div class="info-item"><span>💴</span>免費散步</div>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=中崎町,大阪" target="_blank" class="map-btn">📍
+            Google 地圖導航</a>
+        </div>
+      </div>
+
+      <div class="attraction-card">
+        <div class="attraction-image" style="background: linear-gradient(135deg, #2d5a27 0%, #1a3d18 100%);">
+          <span class="attraction-badge">京都</span>
+          <div class="attraction-title">
+            <h3>南禪寺</h3>
+            <div class="jp-name">なんぜんじ</div>
+          </div>
+        </div>
+        <div class="attraction-content">
+          <p class="attraction-description">
+            日本臨濟宗南禪寺派大本山，名列「京都五山」之首。三門建於1628年，高達22公尺，是日本三大門之一。後方的「水路閣」是明治時期仿羅馬水道橋興建的琵琶湖疏水道，2025年被指定為國寶。</p>
+          <div class="attraction-highlights">
+            <h4>✨ 必看重點</h4>
+            <div class="highlight-item"><span>⛩️</span><span><strong>三門（絕景門）</strong>：登頂俯瞰京都，歌舞伎名劇場景</span>
+            </div>
+            <div class="highlight-item"><span>🏛️</span><span><strong>水路閣</strong>：紅磚羅馬式拱橋，超人氣攝影點</span>
+            </div>
+            <div class="highlight-item"><span>🪨</span><span><strong>方丈庭園</strong>：「虎負子渡」枯山水，禪意空間</span>
+            </div>
+            <div class="highlight-item"><span>🍵</span><span><strong>周邊美食</strong>：順正、奧丹湯豆腐，藍瓶咖啡</span>
+            </div>
+          </div>
+          <div class="attraction-info">
+            <div class="info-item"><span>🚇</span>地鐵東西線「蹴上站」</div>
+            <div class="info-item"><span>🚶</span>步行約13分鐘</div>
+            <div class="info-item"><span>⏰</span>8:40-17:00（冬季至16:30）</div>
+            <div class="info-item"><span>💴</span>境內免費／三門¥600</div>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=南禅寺,京都" target="_blank" class="map-btn">📍
+            Google 地圖導航</a>
+        </div>
+      </div>
+
+      <div class="attraction-card">
+        <div class="attraction-image" style="background: linear-gradient(135deg, #5a8f7b 0%, #3d6b55 100%);">
+          <span class="attraction-badge">京都</span>
+          <div class="attraction-title">
+            <h3>哲學之道 & 銀閣寺</h3>
+            <div class="jp-name">てつがくのみち・ぎんかくじ</div>
+          </div>
+        </div>
+        <div class="attraction-content">
+          <p class="attraction-description">
+            連接南禪寺與銀閣寺的2公里運河小徑，因哲學家西田幾多郎每日在此散步冥想而得名。冬季枝椏蕭瑟別有風情，遊客稀少。終點銀閣寺是室町幕府將軍足利義政的山莊，展現日本侘寂美學。</p>
+          <div class="attraction-highlights">
+            <h4>✨ 沿途看點</h4>
+            <div class="highlight-item"><span>🚶</span><span><strong>漫步體驗</strong>：全程約40-60分鐘，冬季人少更愜意</span>
+            </div>
+            <div class="highlight-item"><span>🐱</span><span><strong>貓咪出沒</strong>：常有悠閒散步的街貓</span></div>
+            <div class="highlight-item"><span>⛩️</span><span><strong>永觀堂・法然院</strong>：沿途靜謐小寺</span></div>
+            <div class="highlight-item"><span>🏯</span><span><strong>銀閣寺</strong>：世界遺產，「向月台」與「銀沙灘」</span>
+            </div>
+          </div>
+          <div class="attraction-info">
+            <div class="info-item"><span>📍</span>南禪寺→銀閣寺約2km</div>
+            <div class="info-item"><span>⏰</span>24小時開放（免費）</div>
+            <div class="info-item"><span>💴</span>銀閣寺 ¥500</div>
+            <div class="info-item"><span>🕐</span>銀閣寺 9:00-16:30</div>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=哲学の道,京都" target="_blank" class="map-btn">📍
+            Google 地圖導航</a>
+        </div>
+      </div>
+
+      <div class="attraction-card">
+        <div class="attraction-image" style="background: linear-gradient(135deg, #6b8e9f 0%, #4a6670 100%);">
+          <span class="attraction-badge">京都郊外</span>
+          <div class="attraction-title">
+            <h3>鞍馬溫泉</h3>
+            <div class="jp-name">くらま温泉</div>
+          </div>
+        </div>
+        <div class="attraction-content">
+          <p class="attraction-description">
+            被北山杉環繞的秘境溫泉，地下7公尺自然湧出的單純硫化水素泉，對神經痛、肌肉疲勞、美肌有功效。露天風呂可仰望山林，冬季能在雪景中享受溫暖湯池。2024年整修後重新開幕。</p>
+          <div class="attraction-highlights">
+            <h4>✨ 泡湯指南</h4>
+            <div class="highlight-item"><span>♨️</span><span><strong>露天風呂</strong>：森林浴＋溫泉浴，冬季雪景絕美</span>
+            </div>
+            <div class="highlight-item"><span>🍱</span><span><strong>館內餐食</strong>：地雞山菜釜飯、冬季限定牡丹鍋</span>
+            </div>
+            <div class="highlight-item"><span>🚌</span><span><strong>免費接駁</strong>：鞍馬站有免費送迎巴士約3分鐘</span>
+            </div>
+            <div class="highlight-item"><span>💡</span><span><strong>建議</strong>：平日人少，冬季露天風呂開放至20:00</span>
+            </div>
+          </div>
+          <div class="attraction-info">
+            <div class="info-item"><span>🚃</span>叡山電車「鞍馬站」</div>
+            <div class="info-item"><span>⏰</span>10:00-21:00</div>
+            <div class="info-item"><span>💴</span>露天 ¥1,400-1,600</div>
+            <div class="info-item"><span>💴</span>全館 ¥2,500-2,700</div>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=くらま温泉,京都" target="_blank" class="map-btn">📍 Google 地圖導航</a>
+        </div>
+      </div>
+
+      <div class="attraction-card">
+        <div class="attraction-image" style="background: linear-gradient(135deg, #d4556b 0%, #a33d50 100%);">
+          <span class="attraction-badge">京都</span>
+          <div class="attraction-title">
+            <h3>河原町・先斗町</h3>
+            <div class="jp-name">かわらまち・ぽんとちょう</div>
+          </div>
+        </div>
+        <div class="attraction-content">
+          <p class="attraction-description">
+            京都最熱鬧的夜生活區。河原町是購物天堂，鴨川旁的先斗町則是狹長石板小巷，保留花街風情，兩側林立居酒屋、割烹、酒吧。冬夜漫步燈籠搖曳，偶爾能瞥見舞妓身影。</p>
+          <div class="attraction-highlights">
+            <h4>✨ 夜遊推薦</h4>
+            <div class="highlight-item"><span>🏮</span><span><strong>先斗町小巷</strong>：石板路、紅燈籠、料亭雲集</span>
+            </div>
+            <div class="highlight-item"><span>🍶</span><span><strong>Bar
+                  ATLANTIS</strong>：擁有鴨川納涼床的時尚酒吧</span></div>
+            <div class="highlight-item"><span>🥢</span><span><strong>開陽亭</strong>：老字號洋食屋，傳承百年</span></div>
+            <div class="highlight-item"><span>🌉</span><span><strong>鴨川散步</strong>：冬夜河畔燈火通明</span></div>
+          </div>
+          <div class="attraction-info">
+            <div class="info-item"><span>🚃</span>阪急「河原町站」</div>
+            <div class="info-item"><span>🚃</span>京阪「祇園四條站」</div>
+            <div class="info-item"><span>⏰</span>店家多從傍晚營業</div>
+            <div class="info-item"><span>💴</span>居酒屋約¥3,000/人</div>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=先斗町,京都" target="_blank" class="map-btn">📍
+            Google 地圖導航</a>
+        </div>
+      </div>
+
+      <div class="attraction-card">
+        <div class="attraction-image" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+          <span class="attraction-badge">大阪</span>
+          <div class="attraction-title">
+            <h3>梅田藍天大廈</h3>
+            <div class="jp-name">うめだスカイビル</div>
+          </div>
+        </div>
+        <div class="attraction-content">
+          <p class="attraction-description">
+            大阪地標性建築，高173公尺的連接式雙子塔，頂樓「空中庭園展望台」提供360度俯瞰大阪市景。夜間的「星空步道」地板會發光。地下一樓「瀧見小路」重現1920年代大阪街景，美食與懷舊兼具。</p>
+          <div class="attraction-highlights">
+            <h4>✨ 體驗重點</h4>
+            <div class="highlight-item"><span>🌃</span><span><strong>空中庭園展望台</strong>：戶外露天平台，360度夜景</span>
+            </div>
+            <div class="highlight-item"><span>✨</span><span><strong>星空步道</strong>：地板螢光步道，浪漫約會聖地</span></div>
+            <div class="highlight-item"><span>🍜</span><span><strong>瀧見小路（B1）</strong>：復古美食街，章魚燒、拉麵</span>
+            </div>
+            <div class="highlight-item"><span>💡</span><span><strong>省錢秘訣</strong>：大阪周遊卡15:00前免費入場！</span>
+            </div>
+          </div>
+          <div class="attraction-info">
+            <div class="info-item"><span>🚇</span>JR「大阪站」步行10分</div>
+            <div class="info-item"><span>⏰</span>9:30-22:30</div>
+            <div class="info-item"><span>💴</span>大人 ¥2,000</div>
+            <div class="info-item"><span>💴</span>兒童 ¥500</div>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=梅田スカイビル,大阪" target="_blank" class="map-btn">📍 Google 地圖導航</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transport Section -->
+    <section id="transport">
+      <div class="section-header">
+        <h2>🚃 交通詳細指南</h2>
+        <p>每段路線附詳細搭乘步驟</p>
+      </div>
+
+      <div class="transport-route">
+        <div class="route-header">
+          <h3>✈️ 關西機場 → 大阪難波</h3>
+          <div class="route-time">約48分鐘｜南海電鐵</div>
+        </div>
+        <div class="route-body">
+          <div class="route-steps">
+            <div class="step">
+              <div class="step-marker start"></div>
+              <div class="step-content">
+                <h4>1. 出關後前往南海電鐵</h4>
+                <p>T1航廈出關後，沿指標往「鐵道」方向走，約5分鐘抵達2樓南海電鐵車站</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-marker"></div>
+              <div class="step-content">
+                <h4>2. 購票選擇</h4>
+                <p>自動售票機或窗口購票，可刷ICOCA。選擇「空港急行」即可</p>
+                <div class="tip">💡 四人以上可考慮「Rapi:t」特急（約34分），外國人優惠票較划算</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-marker"></div>
+              <div class="step-content">
+                <h4>3. 搭乘空港急行</h4>
+                <p>確認月台顯示「難波行き」，上車後直達難波站</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-marker end"></div>
+              <div class="step-content">
+                <h4>4. 抵達難波站</h4>
+                <p>南海難波站與地鐵難波站相連，可直接轉乘或步行至住宿</p>
+              </div>
+            </div>
+          </div>
+          <div class="route-price">
+            <span class="label">空港急行票價（單程）</span>
+            <span class="price">¥970 / 人</span>
+          </div>
+          <a href="https://www.google.com/maps/dir/関西国際空港/難波駅" target="_blank" class="route-map-btn">🗺️
+            Google 地圖查看路線</a>
+        </div>
+      </div>
+
+      <div class="transport-route">
+        <div class="route-header" style="background: linear-gradient(135deg, #34a853 0%, #2d8a46 100%);">
+          <h3>🚄 大阪 → 京都</h3>
+          <div class="route-time">約30分鐘｜JR京都線新快速</div>
+        </div>
+        <div class="route-body">
+          <div class="route-steps">
+            <div class="step">
+              <div class="step-marker start"></div>
+              <div class="step-content">
+                <h4>1. 前往JR大阪站</h4>
+                <p>從難波搭地鐵御堂筋線至「梅田站」，步行轉乘JR大阪站（約5分鐘）</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-marker"></div>
+              <div class="step-content">
+                <h4>2. 確認月台與列車</h4>
+                <p>找「JR京都線」月台（通常7-10號），確認「新快速・京都方面」</p>
+                <div class="tip">💡 新快速最快！普通車和快速停較多站</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-marker end"></div>
+              <div class="step-content">
+                <h4>3. 抵達京都站</h4>
+                <p>自由座，約30分鐘抵達。京都站可轉乘地鐵、巴士或JR奈良線</p>
+              </div>
+            </div>
+          </div>
+          <div class="route-price">
+            <span class="label">JR票價（單程）</span>
+            <span class="price">¥580 / 人</span>
+          </div>
+          <a href="https://www.google.com/maps/dir/大阪駅/京都駅" target="_blank" class="route-map-btn">🗺️ Google
+            地圖查看路線</a>
+        </div>
+      </div>
+
+      <div class="transport-route">
+        <div class="route-header" style="background: linear-gradient(135deg, #9b59b6 0%, #7d3c98 100%);">
+          <h3>🚃 京都市區 → 鞍馬溫泉</h3>
+          <div class="route-time">約1小時｜京阪電車＋叡山電車</div>
+        </div>
+        <div class="route-body">
+          <div class="route-steps">
+            <div class="step">
+              <div class="step-marker start"></div>
+              <div class="step-content">
+                <h4>1. 前往出町柳站</h4>
+                <p>從京都站搭巴士或地鐵，或從祇園四條搭京阪電車（約10分鐘）</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-marker"></div>
+              <div class="step-content">
+                <h4>2. 轉乘叡山電車鞍馬線</h4>
+                <p>出町柳站內轉乘，確認月台顯示「鞍馬行き」（2或3號月台）</p>
+                <div class="tip">💡 展望列車「KIRARA」有大片玻璃窗，景觀最佳（約1小時一班）</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-marker"></div>
+              <div class="step-content">
+                <h4>3. 享受車窗風景</h4>
+                <p>約30分鐘，經過「市原～二之瀨」楓葉隧道路段（冬季為雪景）</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-marker end"></div>
+              <div class="step-content">
+                <h4>4. 抵達鞍馬站</h4>
+                <p>步行10分鐘或搭免費接駁巴士前往鞍馬溫泉（約3分鐘）</p>
+              </div>
+            </div>
+          </div>
+          <div class="route-price">
+            <span class="label">叡山電車票價（出町柳→鞍馬）</span>
+            <span class="price">¥470 / 人</span>
+          </div>
+          <a href="https://www.google.com/maps/dir/出町柳駅/くらま温泉" target="_blank" class="route-map-btn">🗺️
+            Google 地圖查看路線</a>
+        </div>
+      </div>
+
+      <div class="pass-card">
+        <h3>🎫 推薦交通票券</h3>
+        <div class="pass-item">
+          <h4>ICOCA 卡</h4>
+          <p>關西版Suica，搭JR、地鐵、私鐵、巴士都能用，便利商店也可刷</p>
+          <div class="price">押金 ¥500 + 儲值金額</div>
+        </div>
+        <div class="pass-item">
+          <h4>叡山電車一日券</h4>
+          <p>若當天往返鞍馬並多次上下車，購買一日券較划算</p>
+          <div class="price">大人 ¥1,200｜兒童 ¥600</div>
+        </div>
+        <div class="pass-item">
+          <h4>京都巴士＋地鐵一日券</h4>
+          <p>京都市內觀光使用，含大部分市營巴士與地鐵</p>
+          <div class="price">大人 ¥1,100｜兒童 ¥550</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phrases Section -->
+    <section id="phrases">
+      <div class="section-header">
+        <h2>💬 旅遊實用日語</h2>
+        <p>點擊卡片即可播放發音</p>
+      </div>
+      <div class="search-box">
+        <input type="text" id="phraseSearch" placeholder="搜尋日語會話...">
+      </div>
+      <div class="phrase-filters">
+        <button class="filter-btn active" data-category="all">全部</button>
+        <button class="filter-btn" data-category="greeting">打招呼</button>
+        <button class="filter-btn" data-category="restaurant">餐廳</button>
+        <button class="filter-btn" data-category="shopping">購物</button>
+        <button class="filter-btn" data-category="transport">交通</button>
+        <button class="filter-btn" data-category="onsen">溫泉</button>
+        <button class="filter-btn" data-category="emergency">緊急</button>
+      </div>
+      <div id="phraseList"></div>
+    </section>
+
+    <!-- Info Section -->
+    <section id="info">
+      <div class="section-header">
+        <h2>ℹ️ 實用旅遊資訊</h2>
+        <p>天氣・緊急聯絡・實用知識</p>
+      </div>
+      <div class="emergency-card">
+        <h3>🚨 緊急聯絡電話</h3>
+        <div class="emergency-item">
+          <span class="label">警察</span>
+          <span class="number">110</span>
+        </div>
+        <div class="emergency-item">
+          <span class="label">消防・救護車</span>
+          <span class="number">119</span>
+        </div>
+        <div class="emergency-item">
+          <span class="label">駐日台北經濟文化代表處</span>
+          <span class="number">03-3280-7917</span>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="icon">🌡️</div>
+          <h4>大阪氣溫</h4>
+          <p>3°C - 9°C</p>
+        </div>
+        <div class="info-card">
+          <div class="icon">🌡️</div>
+          <h4>京都氣溫</h4>
+          <p>1°C - 8°C</p>
+        </div>
+        <div class="info-card">
+          <div class="icon">💱</div>
+          <h4>匯率參考</h4>
+          <p>¥100 ≈ NT$21</p>
+        </div>
+        <div class="info-card">
+          <div class="icon">🔌</div>
+          <h4>電壓</h4>
+          <p>110V 雙扁插</p>
+        </div>
+        <div class="info-card">
+          <div class="icon">🕐</div>
+          <h4>時差</h4>
+          <p>比台灣快1小時</p>
+        </div>
+        <div class="info-card">
+          <div class="icon">🧥</div>
+          <h4>穿著建議</h4>
+          <p>厚外套・圍巾・手套</p>
+        </div>
+      </div>
+      <div class="tips-card">
+        <h4>💡 實用小提醒</h4>
+        <ul>
+          <li>便利商店（7-11、全家、Lawson）24小時營業，可買熱食、提款</li>
+          <li>免稅購物：同店單日滿 ¥5,000 可退稅（需帶護照）</li>
+          <li>車站投幣式置物櫃：小型 ¥300-400、大型 ¥500-700</li>
+          <li>日本搭電扶梯：大阪靠右站、京都靠左站</li>
+          <li>泡溫泉前務必先淋浴沖洗乾淨，勿將毛巾浸入池中</li>
+          <li>餐廳用餐無需給小費，這是日本文化</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>2026 🗾 旅遊助手</p>
+    <p style="margin-top: 5px;">Reedited from loperntu.github.io</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.section).classList.add('active');
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    const phrases = [{
+        zh: '你好',
+        jp: 'こんにちは',
+        romaji: 'Konnichiwa',
+        category: 'greeting'
+      },
+      {
+        zh: '早安',
+        jp: 'おはようございます',
+        romaji: 'Ohayou gozaimasu',
+        category: 'greeting'
+      },
+      {
+        zh: '謝謝',
+        jp: 'ありがとうございます',
+        romaji: 'Arigatou gozaimasu',
+        category: 'greeting'
+      },
+      {
+        zh: '不好意思',
+        jp: 'すみません',
+        romaji: 'Sumimasen',
+        category: 'greeting'
+      },
+      {
+        zh: '請多關照',
+        jp: 'よろしくお願いします',
+        romaji: 'Yoroshiku onegaishimasu',
+        category: 'greeting'
+      },
+      {
+        zh: '我是台灣人',
+        jp: '台湾人です',
+        romaji: 'Taiwan-jin desu',
+        category: 'greeting'
+      },
+      {
+        zh: '我不會說日文',
+        jp: '日本語が話せません',
+        romaji: 'Nihongo ga hanasemasen',
+        category: 'greeting'
+      },
+      {
+        zh: '請說慢一點',
+        jp: 'ゆっくり話してください',
+        romaji: 'Yukkuri hanashite kudasai',
+        category: 'greeting'
+      },
+      {
+        zh: '請給我菜單',
+        jp: 'メニューをください',
+        romaji: 'Menyuu wo kudasai',
+        category: 'restaurant'
+      },
+      {
+        zh: '請問有推薦的嗎？',
+        jp: 'おすすめは何ですか？',
+        romaji: 'Osusume wa nan desu ka?',
+        category: 'restaurant'
+      },
+      {
+        zh: '我要這個',
+        jp: 'これをください',
+        romaji: 'Kore wo kudasai',
+        category: 'restaurant'
+      },
+      {
+        zh: '我開動了',
+        jp: 'いただきます',
+        romaji: 'Itadakimasu',
+        category: 'restaurant'
+      },
+      {
+        zh: '很好吃！',
+        jp: '美味しいです！',
+        romaji: 'Oishii desu!',
+        category: 'restaurant'
+      },
+      {
+        zh: '請結帳',
+        jp: 'お会計お願いします',
+        romaji: 'Okaikei onegaishimasu',
+        category: 'restaurant'
+      },
+      {
+        zh: '可以刷卡嗎？',
+        jp: 'カード使えますか？',
+        romaji: 'Kaado tsukaemasu ka?',
+        category: 'restaurant'
+      },
+      {
+        zh: '我吃飽了',
+        jp: 'ごちそうさまでした',
+        romaji: 'Gochisousama deshita',
+        category: 'restaurant'
+      },
+      {
+        zh: '請給我水',
+        jp: 'お水をください',
+        romaji: 'Omizu wo kudasai',
+        category: 'restaurant'
+      },
+      {
+        zh: '這個多少錢？',
+        jp: 'これはいくらですか？',
+        romaji: 'Kore wa ikura desu ka?',
+        category: 'shopping'
+      },
+      {
+        zh: '可以試穿嗎？',
+        jp: '試着できますか？',
+        romaji: 'Shichaku dekimasu ka?',
+        category: 'shopping'
+      },
+      {
+        zh: '有其他顏色嗎？',
+        jp: '他の色はありますか？',
+        romaji: 'Hoka no iro wa arimasu ka?',
+        category: 'shopping'
+      },
+      {
+        zh: '可以退稅嗎？',
+        jp: '免税できますか？',
+        romaji: 'Menzei dekimasu ka?',
+        category: 'shopping'
+      },
+      {
+        zh: '只是看看',
+        jp: '見ているだけです',
+        romaji: 'Mite iru dake desu',
+        category: 'shopping'
+      },
+      {
+        zh: '請問＿＿怎麼去？',
+        jp: '＿＿へはどう行きますか？',
+        romaji: '__e wa dou ikimasu ka?',
+        category: 'transport'
+      },
+      {
+        zh: '這班車去＿＿嗎？',
+        jp: 'この電車は＿＿に行きますか？',
+        romaji: 'Kono densha wa __ni ikimasu ka?',
+        category: 'transport'
+      },
+      {
+        zh: '請問幾號月台？',
+        jp: '何番線ですか？',
+        romaji: 'Nan-bansen desu ka?',
+        category: 'transport'
+      },
+      {
+        zh: '到京都站',
+        jp: '京都駅までお願いします',
+        romaji: 'Kyoto-eki made onegaishimasu',
+        category: 'transport'
+      },
+      {
+        zh: '露天風呂在哪裡？',
+        jp: '露天風呂はどこですか？',
+        romaji: 'Rotenburo wa doko desu ka?',
+        category: 'onsen'
+      },
+      {
+        zh: '有毛巾嗎？',
+        jp: 'タオルはありますか？',
+        romaji: 'Taoru wa arimasu ka?',
+        category: 'onsen'
+      },
+      {
+        zh: '有寄物櫃嗎？',
+        jp: 'ロッカーはありますか？',
+        romaji: 'Rokkaa wa arimasu ka?',
+        category: 'onsen'
+      },
+      {
+        zh: '泡完了很舒服',
+        jp: 'いい湯でした',
+        romaji: 'Ii yu deshita',
+        category: 'onsen'
+      },
+      {
+        zh: '請幫幫我！',
+        jp: '助けてください！',
+        romaji: 'Tasukete kudasai!',
+        category: 'emergency'
+      },
+      {
+        zh: '我迷路了',
+        jp: '道に迷いました',
+        romaji: 'Michi ni mayoimashita',
+        category: 'emergency'
+      },
+      {
+        zh: '請叫救護車',
+        jp: '救急車を呼んでください',
+        romaji: 'Kyuukyuusha wo yonde kudasai',
+        category: 'emergency'
+      },
+      {
+        zh: '我不舒服',
+        jp: '気分が悪いです',
+        romaji: 'Kibun ga warui desu',
+        category: 'emergency'
+      },
+      {
+        zh: '護照不見了',
+        jp: 'パスポートをなくしました',
+        romaji: 'Pasupooto wo nakushimashita',
+        category: 'emergency'
+      }
+    ];
+
+    function renderPhrases(filter = 'all', search = '') {
+      const list = document.getElementById('phraseList');
+      const filtered = phrases.filter(p => {
+        const matchCategory = filter === 'all' || p.category === filter;
+        const matchSearch = search === '' || p.zh.includes(search) || p.jp.includes(search) || p.romaji.toLowerCase().includes(search.toLowerCase());
+        return matchCategory && matchSearch;
+      });
+      list.innerHTML = filtered.map(p => `
+                <div class="phrase-card" onclick="speak('${p.jp}')">
+                    <span class="phrase-speaker" onclick="event.stopPropagation(); speak('${p.jp}')">🔊</span>
+                    <div class="phrase-zh">${p.zh}</div>
+                    <div class="phrase-jp">${p.jp}</div>
+                    <div class="phrase-romaji">${p.romaji}</div>
+                </div>
+            `).join('');
+    }
+
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'ja-JP';
+        utterance.rate = 0.85;
+        speechSynthesis.speak(utterance);
+      }
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderPhrases(btn.dataset.category, document.getElementById('phraseSearch').value);
+      });
+    });
+
+    document.getElementById('phraseSearch').addEventListener('input', (e) => {
+      const activeFilter = document.querySelector('.filter-btn.active').dataset.category;
+      renderPhrases(activeFilter, e.target.value);
+    });
+
+    renderPhrases();
+  </script>
+</body>
+
+</html>
